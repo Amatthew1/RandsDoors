@@ -1,0 +1,132 @@
+<resources>
+    <string name="app_name">RandsDoors</string>
+    <!-- Label for overflow menu option that inserts test door data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_test_data">Insert Test Data</string>
+
+    <!-- Label for overflow menu option that deletes all data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Inventory</string>
+
+    <!-- Title for the activity to add a new door [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_product">Add a Door</string>
+
+    <!-- Label for editor menu option to save door and leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Label for editor overflow menu option that deletes the current door [CHAR LIMIT=20] -->
+    <string name="action_delete">Delete</string>
+
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+
+    <!-- Label for swing information in the editor [CHAR LIMIT=30] -->
+    <string name="category_swing">Swing</string>
+
+    <!-- Label for measurement information in the editor [CHAR LIMIT=30] -->
+
+    <string name="category_measurement">Measurements</string>
+    <!-- Label for measurement information in the editor [CHAR LIMIT=30] -->
+    <string name="category_details">Details</string>
+
+    <!-- label for door name in the editor [CHAR LIMIT=30] -->
+    <string name="category_door_name">Name</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_door_name">name</string>
+
+    <!-- Label for style field in editor [CHAR LIMIT=5] -->
+    <string name="category_door_style">Style</string>
+
+    <!-- Text hint for style field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_door_style">style</string>
+
+    <!-- Label for color field in editor [CHAR LIMIT=5] -->
+    <string name="category_door_color">Color</string>
+
+    <!-- Text hint for style field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_door_color">color</string>
+
+    <!-- Label for count field in editor [CHAR LIMIT=5] -->
+    <string name="category_door_count">Count</string>
+
+    <!-- Text hint for count field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_door_count">count</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_door_height">height</string>
+
+    <!-- Label for height of the door (inches) [CHAR LIMIT=5] -->
+    <string name="category_door_height">Height</string>
+
+    <!-- Label for manufacture of door [CHAR LIMIT=10] -->
+    <string name="category_door_manufacturer">Manufacturer</string>
+
+    <!-- Text hint for the sales price field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_door_sales_price">sales price</string>
+
+    <!-- Label for the sales price in editor [CHAR LIMIT=5] -->
+    <string name="category_door_sales_price">Price</string>
+
+    <!-- Text hint for the cost price field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_door_cost_price">sales price</string>
+
+    <!-- Label for the cost price in editor [CHAR LIMIT=5] -->
+    <string name="category_door_cost_price">Price</string>
+
+
+
+    <!-- Label for the int/ext in editor [CHAR LIMIT=5] -->
+    <string name="category_int_ext">Int/Ext</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_door_width">width</string>
+
+    <!-- Label for width of the door (inches) [CHAR LIMIT=5] -->
+    <string name="category_door_width">Width</string>
+
+    <!--Label for dropdown menu option if the door is interior-->
+    <string name="interior">Interior</string>
+
+    <!-- Label for dropdown menu option if the door is exterior-->
+    <string name="exterior">Exterior</string>
+
+    <!--Label for dropdown menu option if door is made by jeldwin-->
+    <string name ="jeldwen">Jeldwen</string>
+
+    <!--Label for dropdown menu option if door is made by masonite-->
+    <string name="masonite">Masonite</string>
+
+    <!--Label for dropdown menu option if door is not made by a listed manufactoer-->
+    <string name="other">Other</string>
+
+    <!-- Label for dropdown menu option if the door is un-hung [CHAR LIMIT=20] -->
+    <string name="swing_unknown">Un-hung</string>
+
+    <!-- Label for dropdown menu option if the door is RHS [CHAR LIMIT=20] -->
+    <string name="swing_right">Right Hand Swing</string>
+
+    <!-- Label for dropdown menu option if the door is LHS [CHAR LIMIT=20] -->
+    <string name="swing_left">Left Hand Swing</string>
+
+    <!-- Title text for the empty view, which describes the empty database image [CHAR LIMIT=50] -->
+    <string name="empty_view_title_text">Database is currently empty... </string>
+
+    <!-- Subtitle text for the empty view that prompts the user to add a door [CHAR LIMIT=50] -->
+    <string name="empty_view_subtitle_text">Get started by adding a door</string>
+
+    <string name="unsaved_changes_dialog_msg"> you have not finished editing this door</string>
+
+    <!-- Toast message in editor when current door was successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_door_successful">Door deleted</string>
+
+    <!-- Toast message in editor when current door has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_door_failed">Error with deleting door</string>
+
+    <!-- Dialog message to ask the user to confirm deleting the current door [CHAR LIMIT=NONE] -->
+    <string name="delete_dialog_msg">Delete this door?</string>
+
+    <!-- Dialog button text for the option to confirm deleting the current door [CHAR LIMIT=20] -->
+    <string name="delete">Delete</string>
+
+    <!-- Dialog button text for the option to cancel deletion of the current door [CHAR LIMIT=20] -->
+    <string name="cancel">Cancel</string>
+</resources>

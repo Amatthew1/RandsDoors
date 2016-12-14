@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_swing_options">
+        <item>@string/swing_unknown</item>
+        <item>@string/swing_right</item>
+        <item>@string/swing_left</item>
+    </string-array>
+    <string-array name="array_int_ext_options">
+        <item>@string/interior</item>
+        <item>@string/exterior</item>
+    </string-array>
+    <string-array name="array_manufactorer_options">
+        <item>@string/jeldwen</item>
+        <item>@string/masonite</item>
+        <item>@string/other</item>
+    </string-array>
+</resources>

@@ -1,0 +1,177 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_margin"
+    tools:context=".ProductEditor">
+        ///////////////////OVERVIEW////////////////////////////////
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/EditorHeaderStyle"
+            android:text="@string/category_overview"
+            />
+        ////////////////////name//////////////////////////
+        <LinearLayout
+            style="@style/EditorSectionStyle">
+
+            <TextView
+                style="@style/EditorUnitStyle"
+                android:text="@string/category_door_name"/>
+            <EditText
+                android:id="@+id/edit_door_name"
+                style="@style/EditorEntryStyle"
+                android:hint="@string/hint_door_name"
+                android:inputType="textCapWords"
+                />
+        </LinearLayout>
+        ////////////////style////////////////////////
+        <LinearLayout
+            style="@style/EditorSectionStyle">
+
+            <TextView
+                style="@style/EditorUnitStyle"
+                android:text="@string/category_door_style"/>
+            <EditText
+                android:id="@+id/edit_door_style"
+                style="@style/EditorEntryStyle"
+                android:hint="@string/hint_door_style"
+                android:inputType="textCapWords"/>
+        </LinearLayout>
+        ///////////////color//////////////////////////
+        <LinearLayout
+            style="@style/EditorSectionStyle">
+
+            <TextView
+                style="@style/EditorUnitStyle"
+                android:text="@string/category_door_color"/>
+
+            <EditText
+                android:id="@+id/edit_door_color"
+                style="@style/EditorEntryStyle"
+                android:hint="@string/hint_door_color"
+                android:inputType="textCapWords"/>
+        </LinearLayout>
+    </LinearLayout>
+
+        /////////////////////MEASUREMENTS//////////////////////////////////
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/EditorHeaderStyle"
+            android:text="@string/category_measurement"
+            />
+        ///////////////////swing////////////////////////
+        <LinearLayout
+            style="@style/EditorSectionStyle">
+
+            <TextView
+                style="@style/EditorUnitStyle"
+                android:text="@string/category_swing"/>
+            <Spinner
+                android:id="@+id/spinner_swing"
+                style="@style/EditorEntryStyle"
+                android:spinnerMode="dropdown"/>
+        </LinearLayout>
+        ///////////////////height//////////////////////
+        <LinearLayout
+            style="@style/EditorSectionStyle">
+
+            <TextView
+                style="@style/EditorUnitStyle"
+                android:text="@string/category_door_height"/>
+            <EditText
+                android:id="@+id/edit_door_height"
+                style="@style/EditorEntryStyle"
+                android:hint="@string/hint_door_height"
+                android:inputType="number"/>
+        </LinearLayout>
+        /////////////////////width/////////////////////
+        <LinearLayout
+            style="@style/EditorSectionStyle">
+
+            <TextView
+                style="@style/EditorUnitStyle"
+                android:text="@string/category_door_width"/>
+            <EditText
+                android:id="@+id/edit_door_width"
+                style="@style/EditorEntryStyle"
+                android:hint="@string/hint_door_width"
+                android:inputType="number"/>
+        </LinearLayout>
+
+    </LinearLayout>
+        //////////////////////DETAILS//////////////////////////
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/EditorHeaderStyle"
+            android:text="@string/category_details"
+            />
+        ///////////////////////manufacturer////////////////////////////
+        <LinearLayout
+            style="@style/EditorSectionStyle"
+            >
+
+            <TextView
+                style="@style/EditorUnitStyle"
+                android:text="@string/category_door_manufacturer"/>
+            <Spinner
+                android:id="@+id/spinner_manufacturer"
+                style="@style/EditorEntryStyle"
+                android:spinnerMode="dropdown"/>
+        </LinearLayout>
+        //////////////////////////sales price///////////////////
+        <LinearLayout
+            style="@style/EditorSectionStyle">
+
+            <TextView
+                style="@style/EditorUnitStyle"
+                android:text="@string/category_door_sales_price"/>
+            <EditText
+                android:id="@+id/sales_price"
+                style="@style/EditorEntryStyle"
+                android:hint="@string/hint_door_sales_price"
+                android:inputType="number"
+                />
+        </LinearLayout>
+        //////////////////////Int/ext/////////////////////////
+        <LinearLayout
+            style="@style/EditorSectionStyle">
+
+            <TextView
+                style="@style/EditorUnitStyle"
+                android:text="@string/category_int_ext"/>
+            <Spinner
+                android:id="@+id/spinner_int_ext"
+                style="@style/EditorEntryStyle"
+                android:spinnerMode="dropdown"/>
+        </LinearLayout>
+        /////////////////////////Count/////////////////////////
+        <LinearLayout
+            style="@style/EditorSectionStyle">
+
+            <TextView
+                style="@style/EditorUnitStyle"
+                android:text="@string/category_door_count"/>
+            <EditText
+                android:id="@+id/door_count"
+                style="@style/EditorEntryStyle"
+                android:hint="@string/hint_door_count"
+                android:inputType="number"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
