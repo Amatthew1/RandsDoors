@@ -1,120 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    >
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="48dp"
             android:layout_height="96dp"
             android:orientation="vertical">
-        <TextView
-            android:id="@+id/door_price"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:text="PRICE"
-            android:gravity="center_horizontal"/>
+
             <TextView
                 android:id="@+id/price"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:text="PRICE"
-                android:gravity="center_horizontal"/>
+                android:gravity="center_horizontal"
+                android:text="@string/category_door_sales_price" />
+
+            <TextView
+                android:id="@+id/door_price"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:gravity="center_horizontal" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="256dp"
             android:layout_height="96dp"
-            android:orientation="vertical"
-            android:background="@color/list_itemBackground">
+            android:background="@color/list_itemBackground"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/door_name"
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
-                android:text="CUSTOMER NAME"
-                />
+                android:text="CUSTOMER NAME" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="82dp"
                 android:orientation="horizontal">
+
                 <LinearLayout
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/door_style"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:text="style"/>
+                        android:text="style" />
+
                     <TextView
                         android:id="@+id/door_color"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:text="color"/>
+                        android:text="color" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/door_height"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:text="height"/>
+                        android:text="height" />
+
                     <TextView
                         android:id="@+id/door_width"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:text="width"/>
+                        android:text="width" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="80dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/door_swing"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:text="swing"/>
+                        android:text="swing" />
+
                     <TextView
                         android:id="@+id/door_int_ext"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:text="Int/Ext"/>
+                        android:text="Int/Ext" />
 
                 </LinearLayout>
-                
+
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:orientation="horizontal">
-        <TextView
-            android:id="@+id/door_order"
-            android:layout_width="28dp"
+            android:layout_width="80dp"
             android:layout_height="96dp"
-            android:text="O/S"
-            android:onClick="order_sale_handler"
-            />
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/door_order"
+                style="@style/countButtons"
+                android:text="Order" />
+
             <TextView
                 android:id="@+id/door_count"
-                android:layout_width="24dp"
-                android:layout_height="96dp"
-                android:text="Count"/>
-            <TextView
+                style="@style/countButtons"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
                 android:id="@+id/door_receive"
-                android:layout_width="28dp"
-                android:layout_height="96dp"
-                android:text="R"
-                android:onClick="receive_shipment_handler"/>
+                style="@style/countButtons"
+                android:text="Receive" />
         </LinearLayout>
 
     </LinearLayout>

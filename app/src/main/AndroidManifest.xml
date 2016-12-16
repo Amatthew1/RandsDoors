@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lltsbuildingsupply.randsdoors">
 
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,12 +22,13 @@
             android:parentActivityName=".InventoryDisplay">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".InventoryDisplay"/>
+                android:value=".InventoryDisplay" />
         </activity>
+
         <provider
-            android:authorities="com.lltsbuildingsupply.randsdoors"
             android:name=".data.DoorsProvider"
-            android:exported="false"/>
+            android:authorities="com.lltsbuildingsupply.randsdoors"
+            android:exported="false" />
 
     </application>
 

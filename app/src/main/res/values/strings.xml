@@ -72,6 +72,8 @@
     <!-- Label for the cost price in editor [CHAR LIMIT=5] -->
     <string name="category_door_cost_price">Price</string>
 
+    <!-- Label for order door button-->
+    <string name="order_door">Order Door</string>
 
 
     <!-- Label for the int/ext in editor [CHAR LIMIT=5] -->
@@ -90,7 +92,7 @@
     <string name="exterior">Exterior</string>
 
     <!--Label for dropdown menu option if door is made by jeldwin-->
-    <string name ="jeldwen">Jeldwen</string>
+    <string name="jeldwen">Jeldwen</string>
 
     <!--Label for dropdown menu option if door is made by masonite-->
     <string name="masonite">Masonite</string>
@@ -127,6 +129,27 @@
     <!-- Dialog button text for the option to confirm deleting the current door [CHAR LIMIT=20] -->
     <string name="delete">Delete</string>
 
-    <!-- Dialog button text for the option to cancel deletion of the current door [CHAR LIMIT=20] -->
+    <!-- Dialog button text for option menu to order door -->
+    <string name="action_order">Order Door</string>
+
+    <!--Label for positive responce on orderDoor confirmation-->
+    <string name="order_door_pos">Order</string>
+
+
+    <!-- Message for order door dialog-->
+    <string name="order_dialog_message">Are you sure you want to complete this order?</string>
+
+
     <string name="cancel">Cancel</string>
+
+    <!-- Header for email addresse-->
+    <string name="sales">sales@</string>
+
+    <!-- Footer for email addresse-->
+    <string name="com">.com</string>
+
+    <!-- subject line builder for email-->
+    <string name="subject">Door order for product: </string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
 </resources>

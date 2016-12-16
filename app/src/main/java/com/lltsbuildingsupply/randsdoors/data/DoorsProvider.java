@@ -12,10 +12,6 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
-import static android.R.attr.data;
-import static android.R.attr.fingerprintAuthDrawable;
-import static android.R.attr.id;
-
 /**
  * Created by Admin on 12/11/2016.
  */
@@ -114,23 +110,42 @@ public class DoorsProvider extends ContentProvider {
             throw new IllegalArgumentException("Mishap on swing assignment");
         }
 
-        ///////TO DO////////////////////////////////////////////////////////////////
-        //add sanity checks for style,color/texture,price,count
-        //seperate color and texture
-        /////////////////////////////////////////////////////////////////////////////
 
-        /////////style
-        String style = values.getAsString(DoorContract.DoorEntry.COLUMN_DOOR_STYLE);
-        /////////color/texture
-        String color_texture = values.getAsString(DoorContract.DoorEntry.COLUMN_DOOR_COLOR_TEXTURE);
+        /////////style           no check required
+        //String style = values.getAsString(DoorContract.DoorEntry.COLUMN_DOOR_STYLE);
+
+        /////////color/texture     no check required
+        //String color_texture = values.getAsString(DoorContract.DoorEntry.COLUMN_DOOR_COLOR_TEXTURE);
+
         ////////price
         int price = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_PRICE);
+        if (price < 1) {
+            throw new IllegalArgumentException("Door must have a positive value for price");
+        }
+
         ////////count
-        int count = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_COUNT);
+        Integer count = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_COUNT);
+        if (count == null) {
+            throw new IllegalArgumentException("count must have value, negative, 0 , or positive work");
+        }
+
         ////////manufacturer
         int manufacturer = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_MANUFACTURER);
+        if (manufacturer < 0 || manufacturer > 2) {
+            throw new IllegalArgumentException("Manufacturer must be from listed values");
+        }
+
         ////////int/ext
         int int_ext = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_INT_EXT);
+        if (int_ext < 0 || int_ext > 1) {
+            throw new IllegalArgumentException("int/ext must be one or the other, but not neither or both");
+        }
+
+        ////////////image
+        String image = values.getAsString(DoorContract.DoorEntry.COLUMN_DOOR_PICTURE);
+        if (image == null) {
+            throw new IllegalArgumentException("Door requires an image");
+        }
 
         SQLiteDatabase database = mDBHelper.getWritableDatabase();
         long id = database.insert(DoorContract.DoorEntry.TABLE_NAME, null, values);
@@ -139,7 +154,7 @@ public class DoorsProvider extends ContentProvider {
             Toast.makeText(getContext(), "Error saving door", Toast.LENGTH_LONG).show();
             return null;
         }
-        getContext().getContentResolver().notifyChange(uri,null);
+        getContext().getContentResolver().notifyChange(uri, null);
 
         return ContentUris.withAppendedId(uri, id);
     }
@@ -149,15 +164,15 @@ public class DoorsProvider extends ContentProvider {
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         SQLiteDatabase database = mDBHelper.getWritableDatabase();
         final int match = sUriMatcher.match(uri);
-        switch (match){
+        switch (match) {
             case DOORS:
-                getContext().getContentResolver().notifyChange(uri,null);
-                return database.delete(DoorContract.DoorEntry.TABLE_NAME, selection,selectionArgs);
+                getContext().getContentResolver().notifyChange(uri, null);
+                return database.delete(DoorContract.DoorEntry.TABLE_NAME, selection, selectionArgs);
             case DOORS_ID:
-                selection= DoorContract.DoorEntry._ID + "=?";
+                selection = DoorContract.DoorEntry._ID + "=?";
                 selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
-                getContext().getContentResolver().notifyChange(uri,null);
-                return database.delete(DoorContract.DoorEntry.TABLE_NAME,selection,selectionArgs);
+                getContext().getContentResolver().notifyChange(uri, null);
+                return database.delete(DoorContract.DoorEntry.TABLE_NAME, selection, selectionArgs);
             default:
                 throw new IllegalArgumentException("Delete does not work with this uri: " + uri);
         }
@@ -166,22 +181,87 @@ public class DoorsProvider extends ContentProvider {
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         final int match = sUriMatcher.match(uri);
-        switch (match){
+        switch (match) {
             case DOORS:
-                return updateDoor(uri, values,selection,selectionArgs);
+                return updateDoor(uri, values, selection, selectionArgs);
             case DOORS_ID:
                 selection = DoorContract.DoorEntry._ID + "=?";
-                selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri))};
-                return updateDoor(uri,values,selection,selectionArgs);
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
+                return updateDoor(uri, values, selection, selectionArgs);
             default:
-                throw new IllegalArgumentException("Update cannot be completed with this uri: " +uri);
+                throw new IllegalArgumentException("Update cannot be completed with this uri: " + uri);
         }
     }
 
-    private int updateDoor(Uri uri, ContentValues values,String selection, String[] selectionArgs){
+    private int updateDoor(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         SQLiteDatabase database = mDBHelper.getWritableDatabase();
-        if (values.size()==0){return 0;}
-        getContext().getContentResolver().notifyChange(uri,null);
-        return database.update(DoorContract.DoorEntry.TABLE_NAME,values,selection,selectionArgs);
+        if (values.size() == 0) {
+            return 0;
+        }
+
+        if (values.containsKey(DoorContract.DoorEntry.COLUMN_DOOR_NAME)) {
+            String name = values.getAsString(DoorContract.DoorEntry.COLUMN_DOOR_NAME);
+            if (name == null) {
+                throw new IllegalArgumentException("Door requires a name");
+            }
+        }
+
+        if (values.containsKey(DoorContract.DoorEntry.COLUMN_DOOR_HEIGHT)) {
+            int height = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_HEIGHT);
+            if (height < 1) {
+                throw new IllegalArgumentException("Door requires a positive non-zero height");
+            }
+        }
+
+        if (values.containsKey(DoorContract.DoorEntry.COLUMN_DOOR_WIDTH)) {
+            int width = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_WIDTH);
+            if (width < 1) {
+                throw new IllegalArgumentException("Door requires a positive non-zero height");
+            }
+        }
+        if (values.containsKey(DoorContract.DoorEntry.COLUMN_DOOR_SWING)) {
+            int swing = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_SWING);
+            if (swing < 0 || swing > 2) {
+                throw new IllegalArgumentException("Mishap on swing assignment");
+            }
+        }
+
+        if (values.containsKey(DoorContract.DoorEntry.COLUMN_DOOR_COUNT)) {
+            Integer count = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_COUNT);
+            if (count == null) {
+                throw new IllegalArgumentException("count must have value, negative, 0 , or positive work");
+            }
+        }
+
+        if (values.containsKey(DoorContract.DoorEntry.COLUMN_DOOR_PRICE)) {
+            int price = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_PRICE);
+            if (price < 1) {
+                throw new IllegalArgumentException("Door must have a positive value for price");
+            }
+        }
+        if (values.containsKey(DoorContract.DoorEntry.COLUMN_DOOR_MANUFACTURER)) {
+            int manufacturer = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_MANUFACTURER);
+            if (manufacturer < 0 || manufacturer > 2) {
+                throw new IllegalArgumentException("Manufacturer must be from listed values");
+            }
+        }
+
+        if (values.containsKey(DoorContract.DoorEntry.COLUMN_DOOR_PICTURE)) {
+            String image = values.getAsString(DoorContract.DoorEntry.COLUMN_DOOR_PICTURE);
+            if (image == null) {
+                throw new IllegalArgumentException("Door requires an image");
+            }
+        }
+
+        if (values.containsKey(DoorContract.DoorEntry.COLUMN_DOOR_INT_EXT)) {
+            int int_ext = values.getAsInteger(DoorContract.DoorEntry.COLUMN_DOOR_INT_EXT);
+            if (int_ext < 0 || int_ext > 1) {
+                throw new IllegalArgumentException("int/ext must be one or the other, but not neither or both");
+            }
+        }
+
+
+        getContext().getContentResolver().notifyChange(uri, null);
+        return database.update(DoorContract.DoorEntry.TABLE_NAME, values, selection, selectionArgs);
     }
 }
